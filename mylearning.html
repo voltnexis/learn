@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Learning - VoltNexis Learn</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="img/logo.png" alt="VoltNexis Learn Logo">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>All Courses</span>
+                    </a></li>
+                    <li><a href="mylearning.html" class="nav-link active">
+                        <i class="fas fa-book-open"></i>
+                        <span>My Learning</span>
+                    </a></li>
+                    <li><a href="certificates.html" class="nav-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-bottom">
+                <a href="https://t.me/voltnexislearn" target="_blank" class="community-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>Join Our Community</span>
+                    <small>@voltnexislearn</small>
+                </a>
+                <button class="recognition-btn" id="recognitionBtn">
+                    <i class="fas fa-star"></i>
+                    <span>Get Recognised by VoltNexis</span>
+                </button>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="profileName">Loading...</span>
+                        <span class="profile-role">Student</span>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h1>My Learning</h1>
+                    <p>Track your progress and continue learning</p>
+                </div>
+                <div class="header-right">
+                    <div class="learning-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-play-circle"></i>
+                            <div>
+                                <span class="stat-number" id="enrolledCount">0</span>
+                                <span class="stat-label">Enrolled</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <span class="stat-number" id="completedCount">0</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="learning-section">
+                <div class="section-tabs">
+                    <button class="tab-btn active" data-tab="in-progress">
+                        <i class="fas fa-play"></i>
+                        In Progress
+                    </button>
+                    <button class="tab-btn" data-tab="completed">
+                        <i class="fas fa-check"></i>
+                        Completed
+                    </button>
+                    <button class="tab-btn" data-tab="bookmarked">
+                        <i class="fas fa-bookmark"></i>
+                        Bookmarked
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="in-progress">
+                    <div id="inProgressCourses" class="learning-grid"></div>
+                </div>
+
+                <div class="tab-content" id="completed">
+                    <div id="completedCourses" class="learning-grid"></div>
+                </div>
+
+                <div class="tab-content" id="bookmarked">
+                    <div id="bookmarkedCourses" class="learning-grid"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <script type="module" src="js/mylearning.js"></script>
+</body>
+</html>

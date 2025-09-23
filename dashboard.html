@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VoltNexis Learn - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="img/logo.png" alt="VoltNexis Learn Logo">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link active">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>All Courses</span>
+                    </a></li>
+                    <li><a href="mylearning.html" class="nav-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>My Learning</span>
+                    </a></li>
+                    <li><a href="certificates.html" class="nav-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-bottom">
+                <a href="https://t.me/voltnexislearn" target="_blank" class="community-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>Join Our Community</span>
+                    <small>@voltnexislearn</small>
+                </a>
+                <button class="recognition-btn" id="recognitionBtn">
+                    <i class="fas fa-star"></i>
+                    <span>Get Recognised by VoltNexis</span>
+                </button>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="profileName">Loading...</span>
+                        <span class="profile-role">Student</span>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-text">
+                        <h1>Dashboard</h1>
+                        <p>Explore and learn new skills</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search courses..." aria-label="Search courses">
+                    </div>
+                    <div class="language-select-container">
+                        <select id="languageSelect" aria-label="Select language">
+                            <option value="all">All Languages</option>
+                            <option value="malayalam">Malayalam</option>
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <section class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>Ready to Level Up Your Skills?</h2>
+                        <p>Join thousands of learners and master in-demand technologies</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number" id="totalCourses">0</span>
+                                <span class="stat-label">Courses</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">Students</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="filters-section">
+                <div class="section-header">
+                    <h3>Browse by Category</h3>
+                </div>
+                <div class="filter-buttons">
+                    <button data-category="all" class="filter-btn active">
+                        <i class="fas fa-th-large"></i>
+                        All
+                    </button>
+                    <button data-category="Programming" class="filter-btn">
+                        <i class="fas fa-code"></i>
+                        Programming
+                    </button>
+                    <button data-category="Full Stack Development" class="filter-btn">
+                        <i class="fas fa-layer-group"></i>
+                        Full Stack
+                    </button>
+                    <button data-category="Mobile App Development" class="filter-btn mobile-hidden">
+                        <i class="fas fa-mobile-alt"></i>
+                        Mobile Dev
+                    </button>
+                    <button data-category="Cyber Security" class="filter-btn mobile-hidden">
+                        <i class="fas fa-shield-alt"></i>
+                        Security
+                    </button>
+                    <button data-category="Data Structure" class="filter-btn mobile-hidden">
+                        <i class="fas fa-database"></i>
+                        Data Structures
+                    </button>
+                    <button data-category="Game Development" class="filter-btn mobile-hidden">
+                        <i class="fas fa-gamepad"></i>
+                        Game Dev
+                    </button>
+                    <button data-category="UI Development" class="filter-btn mobile-hidden">
+                        <i class="fas fa-paint-brush"></i>
+                        UI/UX
+                    </button>
+                    <button class="filter-btn more-btn" id="moreFiltersBtn">
+                        <i class="fas fa-ellipsis-h"></i>
+                        More
+                    </button>
+                </div>
+            </section>
+
+            <section class="courses-section">
+                <div class="section-header">
+                    <h3>Available Courses</h3>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="coursesContainer" class="courses-grid"></div>
+            </section>
+        </main>
+    </div>
+    
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

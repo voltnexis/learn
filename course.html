@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - VoltNexis Learn</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="course-layout">
+        <!-- Course Overview Section -->
+        <div class="course-overview" id="courseOverview">
+            <header class="course-header">
+                <div class="header-nav">
+                    <a href="dashboard.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Courses</span>
+                    </a>
+                    <div class="course-actions">
+                        <button class="action-btn" title="Share Course">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button class="action-btn" title="Bookmark">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="course-hero">
+                <div class="hero-content">
+                    <div class="course-info">
+                        <div class="course-category" id="courseCategoryBadge">Loading...</div>
+                        <h1 id="courseTitle" class="course-title">Loading Course...</h1>
+                        <p id="courseDescription" class="course-description">Loading description...</p>
+                        
+                        <div class="course-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="courseDuration">0h</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-play-circle"></i>
+                                <span id="courseLessonsCount">0 lessons</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-users"></i>
+                                <span>1.2K students</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.8 rating</span>
+                            </div>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>What You'll Learn</h3>
+                            <ul id="courseLearningPoints" class="learning-points">
+                                <li>Loading course features...</li>
+                            </ul>
+                        </div>
+
+                        <button id="startLearningBtn" class="start-btn">
+                            <i class="fas fa-play"></i>
+                            <span>Start Learning Now</span>
+                        </button>
+                    </div>
+                    
+                    <div class="course-preview">
+                        <div class="preview-container">
+                            <img id="courseThumbnail" src="" alt="Course Preview" class="preview-image">
+                            <div class="preview-overlay">
+                                <button class="preview-btn" id="previewBtn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Player Section -->
+        <div class="course-player hidden" id="coursePlayer">
+            <div class="player-layout">
+                <div class="video-section">
+                    <div class="video-header">
+                        <div class="video-nav">
+                            <button id="backToOverview" class="nav-btn">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Course Overview</span>
+                            </button>
+                            <div class="video-title">
+                                <h2 id="currentLessonTitle">Lesson Title</h2>
+                            </div>
+                        </div>
+                        <div class="video-controls">
+                            <button id="prevLessonBtn" class="control-btn" title="Previous Lesson">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="nextLessonBtn" class="control-btn" title="Next Lesson">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="video-player">
+                        <iframe id="videoPlayer" src="" frameborder="0" allowfullscreen title="Course Video"></iframe>
+                    </div>
+                    
+                    <div class="lesson-info">
+                        <div class="lesson-header">
+                            <h3 id="lessonTitle">Lesson Title</h3>
+                            <div class="lesson-actions">
+                                <button id="completeLessonBtn" class="action-btn primary">
+                                    <i class="fas fa-check"></i>
+                                    <span>Mark Complete</span>
+                                </button>
+                                <button id="incompleteLessonBtn" class="action-btn secondary hidden">
+                                    <i class="fas fa-undo"></i>
+                                    <span>Mark Incomplete</span>
+                                </button>
+                            </div>
+                        </div>
+                        <p id="lessonDescription" class="lesson-description">Lesson description will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3 id="sidebarCourseTitle">Course Title</h3>
+                        <button id="sidebarToggle" class="toggle-btn">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <div class="progress-info">
+                            <span class="progress-label">Course Progress</span>
+                            <span id="progressText" class="progress-percentage">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="progressBar" class="progress-bar"></div>
+                        </div>
+                        <button id="certificateBtn" class="certificate-btn hidden">
+                            <i class="fas fa-certificate"></i>
+                            <span>Get Certificate</span>
+                        </button>
+                    </div>
+                    
+                    <div class="lessons-section">
+                        <h4>Course Content</h4>
+                        <div id="lessonList" class="lessons-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mobile-sidebar-overlay" id="sidebarOverlay"></div>
+    <script type="module" src="./js/course.js" defer></script>
+</body>
+</html>

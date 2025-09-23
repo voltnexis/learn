@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us - VoltNexis Learn</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="img/logo.png" alt="VoltNexis Learn Logo">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>All Courses</span>
+                    </a></li>
+                    <li><a href="mylearning.html" class="nav-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>My Learning</span>
+                    </a></li>
+                    <li><a href="certificates.html" class="nav-link">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificates</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link active">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-bottom">
+                <a href="https://t.me/voltnexislearn" target="_blank" class="community-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>Join Our Community</span>
+                    <small>@voltnexislearn</small>
+                </a>
+                <button class="recognition-btn" id="recognitionBtn">
+                    <i class="fas fa-star"></i>
+                    <span>Get Recognised by VoltNexis</span>
+                </button>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="profileName">Loading...</span>
+                        <span class="profile-role">Student</span>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with our support team</p>
+                </div>
+            </header>
+
+            <div class="contact-layout">
+                <section class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions? We're here to help you succeed in your learning journey.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email Support</h4>
+                                <p>support@voltnexislearn.com</p>
+                                <span>Response within 24 hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Phone Support</h4>
+                                <p>+91 9876543210</p>
+                                <span>Mon-Fri, 9 AM - 6 PM IST</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Telegram Community</h4>
+                                <p>@voltnexislearn</p>
+                                <span>Join our tech community</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Live Chat</h4>
+                                <p>Available on website</p>
+                                <span>Mon-Fri, 9 AM - 6 PM IST</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-form-section">
+                    <div class="form-container">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="course">Course Related</option>
+                                    <option value="billing">Billing & Payment</option>
+                                    <option value="certificate">Certificate Issues</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="priority">Priority</label>
+                                <select id="priority" required>
+                                    <option value="">Select priority</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="6" placeholder="Describe your issue or question in detail..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="attachment">Attachment (optional)</label>
+                                <input type="file" id="attachment" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+                                <small>Max file size: 5MB. Supported formats: JPG, PNG, PDF, DOC</small>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <section class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How do I reset my password?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can reset your password by entering your phone number on the login page and following the prompts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How do I download my certificate?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Once you complete a course with 100% progress, visit the Certificates page and click the download button.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can I access courses offline?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Currently, all courses require an internet connection. We're working on offline functionality for the future.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How long do I have access to a course?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You have lifetime access to all enrolled courses. Learn at your own pace!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <script type="module" src="js/contact.js"></script>
+</body>
+</html>

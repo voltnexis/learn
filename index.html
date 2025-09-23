@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VoltNexis Learn - Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@20/build/css/intlTelInput.css" />
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20/build/js/intlTelInput.min.js"></script>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <form id="phone-form" class="auth-form">
+                <img src="img/logo.png" alt="VoltNexis Learn Logo" class="logo">
+                <h3>Enter Phone</h3>
+                <div class="iti-container">
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required aria-label="Phone number" />
+                </div>
+                <button type="submit" id="nextBtn">Next</button>
+            </form>
+
+            <form id="signup-form" class="auth-form hidden">
+                <h3>Create Account</h3>
+                <input type="text" id="fname" placeholder="First name" required aria-label="First name" minlength="2" />
+                <input type="text" id="lname" placeholder="Last name" required aria-label="Last name" minlength="2" />
+                <input type="email" id="email" placeholder="example@gmail.com" required aria-label="Email address" />
+                <div class="iti-container">
+                    <input type="tel" id="signup-phone" readonly aria-label="Phone number" />
+                </div>
+                <select id="user-role" required aria-label="User role">
+                    <option value="">What represents you the best?</option>
+                    <option value="student">Student</option>
+                    <option value="professional">Professional</option>
+                    <option value="other">Other</option>
+                </select>
+                <input type="password" id="pin" placeholder="4-digit PIN" pattern="\d{4}" maxlength="4" minlength="4" required aria-label="4-digit PIN" />
+                <input type="password" id="confirm-pin" placeholder="Confirm 4-digit PIN" pattern="\d{4}" maxlength="4" minlength="4" required aria-label="Confirm PIN" />
+                <button type="submit">Sign Up</button>
+                <a href="#" id="login-link">Already have an account? Login</a>
+            </form>
+
+            <form id="pin-form" class="auth-form hidden">
+                <h3>Enter PIN</h3>
+                <input type="password" id="login-pin" placeholder="4-digit PIN" pattern="\d{4}" maxlength="4" minlength="4" required aria-label="4-digit PIN" />
+                <button type="submit">Login</button>
+                <a href="#" id="signup-link">Don't have an account? Sign Up</a>
+            </form>
+        </div>
+        <div class="social-link">
+            <a href="https://t.me/yourtechcommunity" target="_blank">
+                <img src="img/logo.png" alt="Telegram" class="telegram-icon">
+                Join Our Tech Community
+            </a>
+        </div>
+    </div>
+    <script type="module" src="./js/auth.js" defer></script>
+</body>
+</html>
