@@ -69,16 +69,29 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
+        // Check if Supabase connection failed
+        if (window.supabaseConnectionFailed) {
+            alert("Database connection issue. Please try again later or contact support.");
+            return;
+        }
+        
         nextBtn.disabled = true;
         nextBtn.textContent = "Checking...";
         window.LoadingManager.show('Checking your phone number...', 'phone-check');
 
         try {
+            // Add timeout and retry logic for GitHub Pages
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
+            
             const { data, error } = await supabase
                 .from("users")
                 .select("*")
                 .eq("phone", currentPhone)
+                .abortSignal(controller.signal)
                 .maybeSingle();
+                
+            clearTimeout(timeoutId);
 
             if (error && error.code !== "PGRST116") {
                 throw error;
@@ -100,8 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             nextBtn.disabled = false;
             nextBtn.textContent = "Next";
-            alert("Connection error. Please try again.");
-            console.error(error);
+            
+            if (error.name === 'AbortError') {
+                alert("Request timeout. Please check your connection and try again.");
+            } else {
+                alert("Connection error. Please try again.");
+            }
+            console.error('Auth error:', error);
         } finally {
             window.LoadingManager.hide('phone-check');
         }
