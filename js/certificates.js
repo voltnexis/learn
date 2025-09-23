@@ -339,17 +339,6 @@ function downloadCertificatePDF(courseId) {
                         text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
                         letter-spacing: 2px;
                     ">Certificate of Achievement</h1>
-                    <div style="
-                        background: linear-gradient(135deg, #10b981, #059669);
-                        color: white;
-                        padding: 8px 16px;
-                        border-radius: 25px;
-                        font-size: 16px;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-                    ">🆓 FREE</div>
                 </div>
                 <div style="
                     width: 200px; height: 4px; 
@@ -383,6 +372,17 @@ function downloadCertificatePDF(courseId) {
                     font-weight: bold;
                     line-height: 1.3;
                 ">${course.title}</h3>
+                <div style="
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: 25px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                    ">FREE COURSE</div>
                 
                 <div style="
                     background: rgba(102, 126, 234, 0.1);
