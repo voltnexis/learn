@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Add a click listener to the "Next" button
-    nextBtn.addEventListener("click", (e) => {
+    nextBtn.addEventListener("click", async (e) => {
         e.preventDefault();
         
         // Validate phone number
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
-        phoneForm.dispatchEvent(new Event('submit'));
+        await handlePhoneCheck();
     });
 
     // Handle switching between forms
@@ -51,18 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         signupForm.classList.remove("hidden");
     });
 
-    // Handle phone check
-    phoneForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        
-        if (iti && !iti.isValidNumber()) {
-            alert("Please enter a valid phone number");
-            return;
-        } else if (!iti && phoneInput.value.trim().length < 10) {
-            alert("Please enter a valid phone number");
-            return;
-        }
-        
+    // Handle phone check function
+    async function handlePhoneCheck() {
         currentPhone = iti ? iti.getNumber() : phoneInput.value.trim();
         if (!currentPhone) {
             alert("Please enter a valid phone number");
@@ -123,6 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } finally {
             window.LoadingManager.hide('phone-check');
         }
+    }
+
+    // Handle phone form submit (for Enter key)
+    phoneForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        await handlePhoneCheck();
     });
 
     // Handle signup
