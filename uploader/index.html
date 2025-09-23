@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoltNexis Learn - Course Upload</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="upload-container">
+        <header class="upload-header">
+            <img src="../img/logo.png" alt="VoltNexis Learn" class="logo">
+            <h1><i class="fas fa-graduation-cap"></i> Course Upload</h1>
+            <p class="upload-subtitle">Create amazing courses for your students</p>
+            <div class="upload-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Courses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </header>
+
+        <form id="course-upload-form" class="upload-form">
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="step active">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Course Info</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Content</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Publish</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2><i class="fas fa-book-open"></i> Course Information</h2>
+                
+                <div class="form-group">
+                    <label for="title">Course Title *</label>
+                    <input type="text" id="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea id="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Full Stack">Full Stack</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="AI/ML">AI/ML</option>
+                            <option value="DevOps">DevOps</option>
+                            <option value="Mobile Development">Mobile Development</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language *</label>
+                        <select id="language" required>
+                            <option value="">Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="learning-points">Learning Points *</label>
+                    <textarea id="learning-points" rows="3" placeholder="Enter learning points (one per line)" required></textarea>
+                    <small>Each line will be automatically formatted with braces</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="owner">Course Owner *</label>
+                    <input type="text" id="owner" required>
+                </div>
+
+
+            </div>
+
+            <div class="form-section">
+                <h2><i class="fas fa-play-circle"></i> Course Content</h2>
+                
+                <div class="lessons-section">
+                    <h3><i class="fas fa-list-ol"></i> Lessons</h3>
+                    <div id="lessons-container">
+                        <div class="lesson-item">
+                            <input type="text" placeholder="Lesson 1 Title" class="lesson-title" required>
+                            <textarea placeholder="Lesson 1 Description" class="lesson-description" rows="2" required></textarea>
+                            <input type="url" placeholder="YouTube URL" class="lesson-url" required>
+                            <input type="number" placeholder="Duration (minutes)" class="lesson-duration" min="1" required>
+                            <button type="button" class="remove-lesson" onclick="removeLesson(this)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-lesson" class="add-btn">
+                        <i class="fas fa-plus-circle"></i> Add New Lesson
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="preview-btn" class="btn-secondary">
+                    <i class="fas fa-eye"></i> Preview Course
+                </button>
+                <button type="submit" id="upload-btn" class="btn-primary">
+                    <i class="fas fa-cloud-upload-alt"></i> Publish Course
+                </button>
+            </div>
+        </form>
+
+        <div id="preview-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Course Preview</h3>
+                    <button type="button" class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body" id="preview-content"></div>
+            </div>
+        </div>
+
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Uploading course...</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="upload.js"></script>
+</body>
+</html>
