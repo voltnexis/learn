@@ -1,4 +1,4 @@
-import { supabase } from '../js/supabase.js';
+import { supabase } from './js/supabase.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('course-upload-form');
