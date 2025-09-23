@@ -376,7 +376,10 @@ function downloadCertificatePDF(courseId) {
                         background: linear-gradient(135deg, #10b981, #059669);
                         color: white;
                         padding: 8px 16px;
-                        border-radius: 25px;
+                        width: 150px;
+                        border-radius: 20px;
+                        text-align: center;
+                        margin: 10px auto 20px auto;
                         font-size: 16px;
                         font-weight: bold;
                         text-transform: uppercase;
