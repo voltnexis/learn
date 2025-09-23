@@ -12,14 +12,21 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     }
 });
 
-// Test connection
+// Test connection with better error handling for GitHub Pages
 supabase.from('users').select('count', { count: 'exact', head: true })
     .then(({ error }) => {
         if (error) {
             console.warn('Supabase connection issue:', error.message);
+            // Try alternative connection test
+            return supabase.from('users').select('id').limit(1);
         } else {
             console.log('Supabase connected successfully');
         }
+    })
+    .catch(err => {
+        console.error('Supabase connection failed:', err);
+        // Set a flag for fallback behavior
+        window.supabaseConnectionFailed = true;
     });
 
 export default supabase;
