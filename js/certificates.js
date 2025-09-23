@@ -138,8 +138,7 @@ function renderCertificates() {
                         </div>
                         <div class="certificate-header">
                             <div class="certificate-logo">
-                                <i class="fas fa-bolt"></i>
-                                <span>VoltEdge</span>
+                                <img src="img/logo.png" alt="VoltNexis Learn" style="height: 30px; width: auto; object-fit: contain;">
                             </div>
                         </div>
                         <div class="certificate-content">
@@ -276,53 +275,233 @@ function downloadCertificatePDF(courseId) {
     const course = cert.courses;
     const userName = localStorage.getItem('userName') || 'Student';
     const completionDate = new Date(cert.updated_at).toLocaleDateString();
+    const courseImageUrl = `https://img.youtube.com/vi/${course.youtube_thumbnail_id}/maxresdefault.jpg`;
     
     // Create a temporary certificate element for PDF generation
     const tempCert = document.createElement('div');
-    tempCert.style.cssText = 'position: absolute; left: -9999px; width: 1000px; height: 700px; background: white; padding: 0;';
+    tempCert.style.cssText = 'position: absolute; left: -9999px; width: 1200px; height: 850px; background: white; padding: 0;';
     tempCert.innerHTML = `
-        <div style="width: 100%; height: 100%; border: 8px solid #6366f1; padding: 30px; box-sizing: border-box; text-align: center; font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <div style="display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: bold; color: #6366f1;">
-                        ⚡ VoltNexis Learn Academy
-                    </div>
-                    <div style="width: 100px; height: 60px; border-radius: 6px; border: 2px solid #6366f1; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
-                        🎥
-                    </div>
-                </div>
-                <h1 style="font-size: 28px; color: #1f2937; margin: 20px 0; font-family: Georgia, serif;">Certificate of Achievement</h1>
-                <div style="width: 150px; height: 3px; background: #6366f1; margin: 15px auto;"></div>
-            </div>
+        <div style="
+            width: 100%; height: 100%; 
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            border: 12px solid #667eea; 
+            border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+            padding: 40px; 
+            box-sizing: border-box; 
+            text-align: center; 
+            font-family: 'Georgia', serif;
+            position: relative;
+            overflow: hidden;
+        ">
+            <!-- Background Pattern -->
+            <div style="
+                position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+                background: 
+                    radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+                pointer-events: none;
+            "></div>
             
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-                <p style="font-size: 16px; color: #4b5563; margin: 10px 0; font-style: italic;">This is to certify that</p>
-                <h2 style="font-size: 24px; color: #1f2937; margin: 15px 0; font-family: Georgia, serif; text-decoration: underline; text-decoration-color: #6366f1;">${userName}</h2>
-                <p style="font-size: 16px; color: #4b5563; margin: 10px 0; font-style: italic;">has successfully completed the course</p>
-                <h3 style="font-size: 20px; color: #6366f1; margin: 15px 0; font-weight: bold;">${course.title}</h3>
-                <p style="font-size: 14px; color: #6b7280; margin: 5px 0;">${course.category}</p>
-                <p style="font-size: 12px; color: #9ca3af; margin: 5px 0; font-style: italic;">by ${course.owner || 'Unknown'}</p>
+            <!-- Header Section -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; position: relative; z-index: 1;">
+                <!-- Company Logo -->
+                <div style="display: flex; align-items: center;">
+                    <img src="img/logo.png" 
+                         style="height: 60px; width: auto; object-fit: contain;"
+                         alt="VoltNexis Learn Logo"/>
+                </div>
                 
-                <div style="display: flex; justify-content: center; gap: 30px; margin: 20px 0; flex-wrap: wrap;">
-                    <div style="display: flex; align-items: center; gap: 5px; font-size: 14px; color: #6b7280;">
-                        📅 <span>Completed:</span> <strong style="color: #1f2937;">${completionDate}</strong>
+                <!-- Course Image -->
+                <div style="
+                    width: 140px; height: 90px; 
+                    border-radius: 12px; 
+                    border: 3px solid #667eea;
+                    overflow: hidden;
+                    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    display: flex; align-items: center; justify-content: center;
+                ">
+                    <img src="${courseImageUrl}" 
+                         style="width: 100%; height: 100%; object-fit: cover;"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"/>
+                    <div style="color: white; font-size: 24px; display: none; align-items: center; justify-content: center; width: 100%; height: 100%;">🎓</div>
+                </div>
+            </div>
+            
+            <!-- Certificate Title -->
+            <div style="margin: 40px 0; position: relative; z-index: 1;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 10px;">
+                    <h1 style="
+                        font-size: 42px; 
+                        color: #1f2937; 
+                        margin: 0; 
+                        font-family: 'Georgia', serif;
+                        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                        letter-spacing: 2px;
+                    ">Certificate of Achievement</h1>
+                    <div style="
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: 25px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                    ">🆓 FREE</div>
+                </div>
+                <div style="
+                    width: 200px; height: 4px; 
+                    background: linear-gradient(135deg, #667eea, #764ba2); 
+                    margin: 20px auto;
+                    border-radius: 2px;
+                "></div>
+            </div>
+            
+            <!-- Main Content -->
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; margin: 50px 0; position: relative; z-index: 1;">
+                <p style="font-size: 18px; color: #4b5563; margin: 15px 0; font-style: italic;">This is to certify that</p>
+                
+                <h2 style="
+                    font-size: 36px; 
+                    color: #1f2937; 
+                    margin: 25px 0; 
+                    font-family: 'Georgia', serif; 
+                    text-decoration: underline; 
+                    text-decoration-color: #667eea;
+                    text-decoration-thickness: 3px;
+                    text-underline-offset: 8px;
+                ">${userName}</h2>
+                
+                <p style="font-size: 18px; color: #4b5563; margin: 15px 0; font-style: italic;">has successfully completed the course</p>
+                
+                <h3 style="
+                    font-size: 28px; 
+                    color: #667eea; 
+                    margin: 25px 0; 
+                    font-weight: bold;
+                    line-height: 1.3;
+                ">${course.title}</h3>
+                
+                <div style="
+                    background: rgba(102, 126, 234, 0.1);
+                    padding: 20px;
+                    border-radius: 12px;
+                    margin: 20px auto;
+                    max-width: 600px;
+                    border: 1px solid rgba(102, 126, 234, 0.2);
+                ">
+                    <p style="font-size: 16px; color: #374151; margin: 5px 0; font-weight: 600;">${course.category}</p>
+                    <p style="font-size: 14px; color: #6b7280; margin: 5px 0; font-style: italic;">Instructor: ${course.owner || 'VoltNexis Learn'}</p>
+                </div>
+                
+                <!-- Course Details -->
+                <div style="
+                    display: flex; 
+                    justify-content: center; 
+                    gap: 50px; 
+                    margin: 30px 0; 
+                    flex-wrap: wrap;
+                ">
+                    <div style="
+                        display: flex; 
+                        align-items: center; 
+                        gap: 8px; 
+                        font-size: 16px; 
+                        color: #374151;
+                        background: white;
+                        padding: 12px 20px;
+                        border-radius: 25px;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                        border: 1px solid #e5e7eb;
+                    ">
+                        <span style="font-size: 18px;">📅</span>
+                        <span>Completed: <strong style="color: #1f2937;">${completionDate}</strong></span>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 5px; font-size: 14px; color: #6b7280;">
-                        ⏰ <span>Duration:</span> <strong style="color: #1f2937;">${course.duration_text || 'N/A'}</strong>
+                    <div style="
+                        display: flex; 
+                        align-items: center; 
+                        gap: 8px; 
+                        font-size: 16px; 
+                        color: #374151;
+                        background: white;
+                        padding: 12px 20px;
+                        border-radius: 25px;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                        border: 1px solid #e5e7eb;
+                    ">
+                        <span style="font-size: 18px;">⏱️</span>
+                        <span>Duration: <strong style="color: #1f2937;">${course.duration_text || 'Self-paced'}</strong></span>
                     </div>
                 </div>
             </div>
             
-            <div style="display: flex; justify-content: space-between; align-items: end;">
+            <!-- Footer Section -->
+            <div style="
+                display: flex; 
+                justify-content: space-between; 
+                align-items: end; 
+                margin-top: 40px;
+                position: relative;
+                z-index: 1;
+            ">
+                <!-- Signature -->
                 <div style="text-align: center;">
-                    <div style="width: 150px; height: 1px; background: #1f2937; margin-bottom: 5px;"></div>
-                    <p style="font-size: 12px; color: #4b5563; margin: 0;">Director, VoltEdge Academy</p>
+                    <div style="
+                        width: 200px; 
+                        height: 2px; 
+                        background: #1f2937; 
+                        margin-bottom: 8px;
+                    "></div>
+                    <p style="font-size: 14px; color: #4b5563; margin: 0; font-weight: 600;">Director</p>
+                    <img src="img/logo.png" style="height: 20px; width: auto; object-fit: contain; margin-top: 5px;" alt="VoltNexis Learn"/>
                 </div>
-                <div style="text-align: center; color: #6366f1;">
-                    <div style="font-size: 30px; margin-bottom: 5px;">🏆</div>
-                    <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px;">Verified</span>
+                
+                <!-- Verification Badge -->
+                <div style="text-align: center; color: #667eea;">
+                    <div style="
+                        font-size: 40px; 
+                        margin-bottom: 8px;
+                        background: linear-gradient(135deg, #667eea, #764ba2);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    ">🏆</div>
+                    <span style="
+                        font-size: 12px; 
+                        text-transform: uppercase; 
+                        letter-spacing: 2px;
+                        font-weight: bold;
+                    ">Verified Certificate</span>
+                </div>
+                
+                <!-- Free Platform Notice -->
+                <div style="text-align: center;">
+                    <div style="
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: 20px;
+                        font-size: 12px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                    ">✨ Using Free</div>
+                    <p style="font-size: 10px; color: #6b7280; margin: 5px 0 0 0;">Free Online Learning</p>
                 </div>
             </div>
+            
+            <!-- Certificate ID -->
+            <div style="
+                position: absolute;
+                bottom: 15px;
+                right: 20px;
+                font-size: 10px;
+                color: #9ca3af;
+                font-family: monospace;
+            ">ID: VNLC-${courseId.slice(-8).toUpperCase()}</div>
         </div>
     `;
     
@@ -330,29 +509,28 @@ function downloadCertificatePDF(courseId) {
     
     // Generate PDF using html2canvas and jsPDF
     html2canvas(tempCert, {
-        scale: 1.5,
-        useCORS: false,
-        allowTaint: false,
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
         backgroundColor: '#ffffff',
-        ignoreElements: (element) => {
-            return element.tagName === 'IMG' && element.src.includes('youtube.com');
-        }
+        width: 1200,
+        height: 850
     }).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
+        const imgData = canvas.toDataURL('image/png', 1.0);
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF('l', 'mm', 'a4');
         
         const pdfWidth = 297;
         const pdfHeight = 210;
-        const imgWidth = pdfWidth - 20;
+        const imgWidth = pdfWidth - 10;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
-        const xOffset = 10;
-        const yOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 10;
+        const xOffset = 5;
+        const yOffset = imgHeight < pdfHeight ? (pdfHeight - imgHeight) / 2 : 5;
         
-        pdf.addImage(imgData, 'PNG', xOffset, yOffset, imgWidth, Math.min(imgHeight, pdfHeight - 20));
+        pdf.addImage(imgData, 'PNG', xOffset, yOffset, imgWidth, Math.min(imgHeight, pdfHeight - 10));
         
-        const fileName = `${course.title.replace(/[^a-zA-Z0-9]/g, '_')}_Certificate.pdf`;
+        const fileName = `VoltNexis_${course.title.replace(/[^a-zA-Z0-9]/g, '_')}_Certificate.pdf`;
         pdf.save(fileName);
         
         document.body.removeChild(tempCert);
