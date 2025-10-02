@@ -1,4 +1,4 @@
-// Global Loading System for VoltEdge
+// Global Loading System for VoltNexis
 
 class LoadingManager {
     constructor() {
@@ -19,7 +19,7 @@ class LoadingManager {
                     </div>
                 </div>
                 <div class="loading-text">
-                    <h3>VoltEdge</h3>
+                    <h3>Volt</h3>
                     <p id="loadingMessage">Loading...</p>
                 </div>
             </div>
