@@ -39,6 +39,14 @@
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@20/build/js/intlTelInput.min.js"></script>
 </head>
 <body>
+    <!-- Add this inside <body> of your HTML file -->
+<div id="desktopNotice" class="desktop-notice">
+  <div class="notice-box">
+    <h3>💻 Desktop View Recommended</h3>
+    <p>For the best experience, please use a desktop or laptop. You can still continue using your device.</p>
+    <button id="proceedBtn">Proceed Anyway</button>
+  </div>
+</div>
     <div class="auth-wrapper">
         <div class="auth-container">
             <form id="phone-form" class="auth-form">
@@ -89,8 +97,21 @@
         </div>
     </div>
     <script type="module" src="./js/auth.js" defer></script>
+    <script>
+        // Show popup only on small (mobile) screens
+if (window.innerWidth < 768) {
+  const notice = document.getElementById("mobileNotice");
+  const proceedBtn = document.getElementById("proceedMobile");
+  notice.style.display = "block";
+
+  proceedBtn.addEventListener("click", () => {
+    notice.style.display = "none";
+  });
+}
+    </script>
 </body>
 </html>
+
 
 
 
