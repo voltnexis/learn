@@ -3865,3 +3865,50 @@ button:active {
     }
 
 }
+.mobile-notice {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  max-width: 300px;
+  display: none; /* hidden by default */
+  animation: fadeIn 0.5s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.notice-box h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: #333;
+}
+
+.notice-box p {
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.notice-box button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.notice-box button:hover {
+  background: #005ecb;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
