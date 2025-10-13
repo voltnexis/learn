@@ -19,7 +19,7 @@ class LoadingManager {
                     </div>
                 </div>
                 <div class="loading-text">
-                    <h3>Volt</h3>
+                    <h3>VoltNexis</h3>
                     <p id="loadingMessage">Loading...</p>
                 </div>
             </div>
